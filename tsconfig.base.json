@@ -14,7 +14,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@rsrch/global": ["libs/shared/global/src/index.ts"]
+      "@rsrch/global": ["libs/shared/global/src/index.ts"],
+      "@rsrch/data": ["libs/shared/data/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
