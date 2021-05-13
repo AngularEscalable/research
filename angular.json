@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "init",
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
+  },
+  "projects": {
+    "init": {
+      "projectType": "application",
+      "root": "apps/init",
+      "sourceRoot": "apps/init/src",
+      "prefix": "rsrch",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/init",
+            "index": "apps/init/src/index.html",
+            "main": "apps/init/src/main.ts",
+            "polyfills": "apps/init/src/polyfills.ts",
+            "tsConfig": "apps/init/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/init/src/favicon.ico", "apps/init/src/assets"],
+            "styles": ["apps/init/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/init/src/environments/environment.ts",
+                  "with": "apps/init/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "apps/initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "init:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "init:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "init:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/init/src/**/*.ts",
+              "apps/init/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/init"],
+          "options": {
+            "jestConfig": "apps/init/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "init-e2e": {
+      "root": "apps/init-e2e",
+      "sourceRoot": "apps/init-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/init-e2e/cypress.json",
+            "tsConfig": "apps/init-e2e/tsconfig.e2e.json",
+            "devServerTarget": "init:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "init:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/init-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  }
+}
