@@ -18,7 +18,8 @@
       "@rsrch/data": ["libs/shared/data/src/index.ts"],
       "@rsrch/ui": ["libs/shared/ui/src/index.ts"],
       "@rsrch/form": ["libs/shared/form/src/index.ts"],
-      "@rsrch/layout": ["libs/shared/layout/src/index.ts"]
+      "@rsrch/layout": ["libs/shared/layout/src/index.ts"],
+      "@rsrch/home": ["libs/domain/home/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
