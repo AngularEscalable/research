@@ -18,13 +18,5 @@
       }
     }
   },
-  "projects": {
-    "init": {
-      "tags": []
-    },
-    "init-e2e": {
-      "tags": [],
-      "implicitDependencies": ["init"]
-    }
-  }
+  "projects": {}
 }
