@@ -46,6 +46,9 @@
     },
     "domain-search": {
       "tags": ["domain", "page"]
+    },
+    "domain-not-found": {
+      "tags": ["domain", "page"]
     }
   }
 }
