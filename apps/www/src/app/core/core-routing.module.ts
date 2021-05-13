@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('@rsrch/home').then((module) => module.HomeModule),
   },
+  {
+    path: 'search',
+    loadChildren: () =>
+      import('@rsrch/search').then((module) => module.SearchModule),
+  },
 ];
 
 @NgModule({
