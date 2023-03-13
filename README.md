@@ -59,8 +59,6 @@ curl 'https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&tagge
 
 Instala las **extensiones** recomendadas en `vscode\extensions.json`
 
-Ejecuta los **scripts** _poco a poco_
-
 Sigue los **ejemplos** vistos en el curso
 
 Familiarízate con los **nuevos tipos** de componentes
