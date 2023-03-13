@@ -6,7 +6,7 @@
     "ng": "ng",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "nx": "nx",
-    "start": "ng serve",
+    "start": "ng serve www",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
