@@ -12,9 +12,15 @@
   "npmScope": "rsrch",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "accessToken": "MTZhYWU2NzgtNTI1Zi00OWJjLTkyZDUtM2NhY2Q0MDAyNjVkfHJlYWQtd3JpdGU="
       }
     }
   },
@@ -24,34 +30,63 @@
     },
     "www-e2e": {
       "tags": [],
-      "implicitDependencies": ["www"]
+      "implicitDependencies": [
+        "www"
+      ]
     },
     "shared-global": {
-      "tags": ["shared", "core"]
+      "tags": [
+        "shared",
+        "core"
+      ]
     },
     "shared-data": {
-      "tags": ["shared", "core"]
+      "tags": [
+        "shared",
+        "core"
+      ]
     },
     "shared-ui": {
-      "tags": ["shared", "ui"]
+      "tags": [
+        "shared",
+        "ui"
+      ]
     },
     "shared-form": {
-      "tags": ["shared", "ui"]
+      "tags": [
+        "shared",
+        "ui"
+      ]
     },
     "shared-layout": {
-      "tags": ["shared", "ui"]
+      "tags": [
+        "shared",
+        "ui"
+      ]
     },
     "domain-home": {
-      "tags": ["domain", "page"]
+      "tags": [
+        "domain",
+        "page"
+      ]
     },
     "domain-search": {
-      "tags": ["domain", "page"]
+      "tags": [
+        "domain",
+        "page"
+      ]
     },
     "domain-not-found": {
-      "tags": ["domain", "page"]
+      "tags": [
+        "domain",
+        "page"
+      ]
     },
     "domain-search-box": {
-      "tags": ["domain", "widget"]
+      "tags": [
+        "domain",
+        "widget"
+      ]
     }
   }
 }
