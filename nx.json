@@ -1,11 +1,4 @@
 {
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    ".eslintrc.json": "*"
-  },
   "affected": {
     "defaultBase": "main"
   },
@@ -14,79 +7,44 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
-        "accessToken": "MTZhYWU2NzgtNTI1Zi00OWJjLTkyZDUtM2NhY2Q0MDAyNjVkfHJlYWQtd3JpdGU="
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "MTZhYWU2NzgtNTI1Zi00OWJjLTkyZDUtM2NhY2Q0MDAyNjVkfHJlYWQtd3JpdGU=",
+        "parallel": 1
       }
     }
   },
-  "projects": {
-    "www": {
-      "tags": []
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": [],
+    "production": [
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s"
+    ]
+  },
+  "targetDefaults": {
+    "build": {
+      "inputs": ["production", "^production"]
     },
-    "www-e2e": {
-      "tags": [],
-      "implicitDependencies": [
-        "www"
-      ]
+    "e2e": {
+      "inputs": ["default", "^production"]
     },
-    "shared-global": {
-      "tags": [
-        "shared",
-        "core"
-      ]
+    "lint": {
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
     },
-    "shared-data": {
-      "tags": [
-        "shared",
-        "core"
-      ]
-    },
-    "shared-ui": {
-      "tags": [
-        "shared",
-        "ui"
-      ]
-    },
-    "shared-form": {
-      "tags": [
-        "shared",
-        "ui"
-      ]
-    },
-    "shared-layout": {
-      "tags": [
-        "shared",
-        "ui"
-      ]
-    },
-    "domain-home": {
-      "tags": [
-        "domain",
-        "page"
-      ]
-    },
-    "domain-search": {
-      "tags": [
-        "domain",
-        "page"
-      ]
-    },
-    "domain-not-found": {
-      "tags": [
-        "domain",
-        "page"
-      ]
-    },
-    "domain-search-box": {
-      "tags": [
-        "domain",
-        "widget"
-      ]
+    "test": {
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }

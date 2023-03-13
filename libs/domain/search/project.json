@@ -1,0 +1,40 @@
+{
+  "name": "domain-search",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/domain/search/src",
+  "prefix": "rsrch",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "options": {
+        "tsConfig": "libs/domain/search/tsconfig.lib.json",
+        "project": "libs/domain/search/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/domain/search/tsconfig.lib.prod.json"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/domain/search/src/**/*.ts",
+          "libs/domain/search/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/domain/search"],
+      "options": {
+        "jestConfig": "libs/domain/search/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["domain", "page"]
+}

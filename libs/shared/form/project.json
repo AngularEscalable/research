@@ -1,0 +1,40 @@
+{
+  "name": "shared-form",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/form/src",
+  "prefix": "rsrch-form",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "options": {
+        "tsConfig": "libs/shared/form/tsconfig.lib.json",
+        "project": "libs/shared/form/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/form/tsconfig.lib.prod.json"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/form/src/**/*.ts",
+          "libs/shared/form/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/form"],
+      "options": {
+        "jestConfig": "libs/shared/form/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["shared", "ui"]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "shared-global",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/global/src",
+  "prefix": "rsrch",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "options": {
+        "tsConfig": "libs/shared/global/tsconfig.lib.json",
+        "project": "libs/shared/global/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/global/tsconfig.lib.prod.json"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/global/src/**/*.ts",
+          "libs/shared/global/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/global"],
+      "options": {
+        "jestConfig": "libs/shared/global/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["shared", "core"]
+}

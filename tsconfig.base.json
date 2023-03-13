@@ -14,15 +14,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@rsrch/global": ["libs/shared/global/src/index.ts"],
       "@rsrch/data": ["libs/shared/data/src/index.ts"],
-      "@rsrch/ui": ["libs/shared/ui/src/index.ts"],
       "@rsrch/form": ["libs/shared/form/src/index.ts"],
-      "@rsrch/layout": ["libs/shared/layout/src/index.ts"],
+      "@rsrch/global": ["libs/shared/global/src/index.ts"],
       "@rsrch/home": ["libs/domain/home/src/index.ts"],
-      "@rsrch/search": ["libs/domain/search/src/index.ts"],
+      "@rsrch/layout": ["libs/shared/layout/src/index.ts"],
       "@rsrch/not-found": ["libs/domain/not-found/src/index.ts"],
-      "@rsrch/search-box": ["libs/domain/search-box/src/index.ts"]
+      "@rsrch/search": ["libs/domain/search/src/index.ts"],
+      "@rsrch/search-box": ["libs/domain/search-box/src/index.ts"],
+      "@rsrch/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
